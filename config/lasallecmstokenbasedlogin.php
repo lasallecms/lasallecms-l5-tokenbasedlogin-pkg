@@ -34,14 +34,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Title
+    | Enable front-end token login
     |--------------------------------------------------------------------------
     |
-    | 
-    |
-    | 
+    | true or false
     |
     */
-    'key' => 'value',
+    'token_login_enable_front_end' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | How many minutes does the user have to login with their token?
+    |--------------------------------------------------------------------------
+    |
+    | For security, it's good for the login token to expire.
+    |
+    | How many minutes is the login token "live"?
+    |
+    */
+    'token_login_minutes_token_is_live' => 360,
 
 ];
