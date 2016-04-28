@@ -32,8 +32,8 @@ namespace Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers;
 
 
 // LaSalle Software
+use Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers\Controller;
 use Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository;
-use Lasallecms\Usermanagement\Http\Controllers\Controller;
 
 // Laravel facades
 use Illuminate\Support\Facades\Auth;

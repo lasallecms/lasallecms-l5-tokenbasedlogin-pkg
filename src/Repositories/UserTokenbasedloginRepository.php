@@ -119,7 +119,7 @@ class UserTokenbasedloginRepository extends BaseRepository
     /**
      * Remove the 'login_token' and 'login_token_created_at' fields.
      *
-     * @param  int  $userID   The user's ID
+     * @param  int   $userID   The user's ID
      * @return mixed
      */
     public function deleteUserLoginTokenFields($userID) {
@@ -129,5 +129,17 @@ class UserTokenbasedloginRepository extends BaseRepository
         $user->login_token_created_at = '';
 
         return $user->save();
+    }
+
+    /**
+     * Get the front-end URL for token based login.
+     *
+     * @param  int    $userID   The user's ID
+     * @return string
+     */
+    public function getFrontendTokenBasedLoginURL($userID) {
+
+        $user = $this->getFind($userID);
+        return config('app.url').'/auth/login/token/'.$user->login_token;
     }
 }

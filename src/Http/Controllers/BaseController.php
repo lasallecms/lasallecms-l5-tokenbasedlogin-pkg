@@ -1,5 +1,7 @@
 <?php
 
+namespace Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers;
+
 /**
  *
  * Token Based Login package for the LaSalle Content Management System, based on the Laravel 5 Framework
@@ -28,30 +30,14 @@
  *
  */
 
+// Laravel classes
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 
-class AlterUsersTable extends Migration
+abstract class BaseController extends Controller
 {
-
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-    {
-        if (Schema::hasTable('users')) {
-
-            Schema::table('users', function ($table) {
-                if (!Schema::hasColumn('login_token', 'login_token_created_at')) {
-
-                    // Token Based Login Authentication Columns
-                    $table->string('login_token')->nullable();
-                    $table->timestamp('login_token_created_at')->nullable();
-                }
-            });
-        }
-    }
- }
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+}
