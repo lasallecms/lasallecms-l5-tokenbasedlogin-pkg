@@ -32,7 +32,7 @@ namespace Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers;
 
 
 // LaSalle Software
-use Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers\Controller;
+use Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers\BaseController;
 use Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository;
 
 // Laravel facades
@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Redirect;
  * Class TokenLoginController
  * @package Lasallecms\Usermanagement\Http\Controllers\Frontendauth
  */
-class FrontEndAuthController extends Controller
+class FrontEndAuthController extends BaseController
 {
     /**
      * @var Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository
