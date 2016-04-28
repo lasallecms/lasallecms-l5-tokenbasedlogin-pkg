@@ -64,10 +64,7 @@ class FrontEndAuthController extends BaseController
      *
      * @param Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository
      */
-    public function __construct(
-        UserRepository                $userRepository,
-        UserTokenbasedloginRepository $userTokenbasedloginRepository
-    ) {
+    public function __construct(UserTokenbasedloginRepository $userTokenbasedloginRepository) {
         $this->userTokenbasedloginRepository = $userTokenbasedloginRepository;
         $this->frontend_template_name        = config('lasallecmsfrontend.frontend_template_name');
     }
