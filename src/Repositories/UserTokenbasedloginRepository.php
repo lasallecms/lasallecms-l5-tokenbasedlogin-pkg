@@ -46,6 +46,9 @@ namespace Lasallecms\Lasallecmstokenbasedlogin\Repositories;
 use Lasallecms\Lasallecmsapi\Repositories\BaseRepository;
 use Lasallecms\Usermanagement\Models\User;
 
+// Laravel classes
+use Illuminate\Support\Str;
+
 // Third party classes
 use Carbon\Carbon;
 
