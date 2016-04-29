@@ -39,6 +39,7 @@ use Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginReposit
 
 // Laravel facades
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 
 
@@ -136,9 +137,10 @@ class FrontEndAuthController extends BaseController
         Auth::loginUsingId($user->id);
 
 
-        // Redirect to front-end dashboard
-        return redirect()->route(
-            config('lasallecmsfrontend.frontend_redirect_to_this_view_when_user_successfully_logged_in_to_front_end')
-        );
+        // Onward to the front-end
+        if (Config::get('lasallecmsfrontend.frontend_redirect_to_this_view_when_user_successfully_logged_in_to_front_end') != '') {
+            return redirect(Config::get('lasallecmsfrontend.frontend_redirect_to_this_view_when_user_successfully_logged_in_to_front_end'));
+        }
+        return Redirect::route('home');
     }
 }
