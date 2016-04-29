@@ -75,7 +75,7 @@ class SendLoginTokenEmail
         $data = $this->buildEmailData($user, $email);
 
         // What blade file to use?
-        $emailBladeFile = 'lasallecrmemail::email.send_login_token_email';
+        $emailBladeFile = 'lasallecmstokenbasedlogin::email.send_login_token_email';
 
         // Send da email
         Mail::queue($emailBladeFile, ['data' => $data], function ($message) use ($data) {
