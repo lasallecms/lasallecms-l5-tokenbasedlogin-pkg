@@ -32,6 +32,8 @@ namespace Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers;
 
 
 // LaSalle Software
+use Lasallecms\Lasallecmsapi\Repositories\UserRepository;
+
 use Lasallecms\Lasallecmstokenbasedlogin\Http\Controllers\BaseController;
 use Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository;
 
@@ -52,6 +54,11 @@ class FrontEndAuthController extends BaseController
     protected $userTokenbasedloginRepository;
 
     /**
+     * @var Lasallecms\Lasallecmsapi\Repositories\UserRepository
+     */
+    protected $userRepository;
+
+    /**
      * The name of the front-end template where the auth views are located
      *
      * @var string
@@ -63,9 +70,14 @@ class FrontEndAuthController extends BaseController
      * CreateLoginToken constructor.
      *
      * @param Lasallecms\Lasallecmstokenbasedlogin\Repositories\UserTokenbasedloginRepository
+     * @param Lasallecms\Lasallecmsapi\Repositories\UserRepository
      */
-    public function __construct(UserTokenbasedloginRepository $userTokenbasedloginRepository) {
+    public function __construct(
+        UserTokenbasedloginRepository $userTokenbasedloginRepository,
+        UserRepository                $userRepository
+    ) {
         $this->userTokenbasedloginRepository = $userTokenbasedloginRepository;
+        $this->userRepository                = $userRepository;
         $this->frontend_template_name        = config('lasallecmsfrontend.frontend_template_name');
     }
 
@@ -114,7 +126,7 @@ class FrontEndAuthController extends BaseController
         }
 
         // Update the user's last_login fields
-        $this->userTokenbasedloginRepository->updateUserRecordWithLastlogin($user->id);
+        $this->userRepository->updateUserRecordWithLastlogin($user->id);
 
         // Delete login token. Can use token just once.
         $this->userTokenbasedloginRepository->deleteUserLoginTokenFields($user->id);
