@@ -1,7 +1,7 @@
-{{{ $data['to_name']  }}}:
+{{{ $data['to_name'] }}}:
 
-{{{ $data['body']  }}}:
+{{{ $data['body'] }}}:
 
-<a href="{{{ $data['login_token_link']  }}}">Click here for your quick login</a>.
+Click <a href="{{{ $data['login_token_link'] }}}">here</a> to login.
 
--{{{ $data['from_name']   }}}
+-{{{ $data['from_name'] }}}
