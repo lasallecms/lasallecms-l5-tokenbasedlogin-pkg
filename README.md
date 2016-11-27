@@ -10,6 +10,9 @@ Token Based Login
 
 Token Based Login for my LaSalle Content Management System.
  
+[MUST READ CAVEAT ABOUT THIS PACKAGE at https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php](https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php)
+
+
 ## Shpiel
  
 For my first paid LaSalle Software gig, I needed a fast way for people to log into the web app directly from an email link. So I created a token based login where the token is generated when the email is sent. 
